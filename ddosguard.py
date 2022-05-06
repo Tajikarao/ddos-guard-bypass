@@ -17,7 +17,7 @@ class DDOSGuard:
 
     def parse_check(self, check):
         src = re.compile(r"new Image\(\).src = '(.+?)';")
-        return src.search(check).group(1)
+        return src.search(check)[1]
 
     def src_validator(self, domaine, src):
         self.session.get(f"{domaine}{src}")
